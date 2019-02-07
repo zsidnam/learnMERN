@@ -1,0 +1,33 @@
+{
+  "name": "learnmern",
+  "version": "1.0.0",
+  "description": "A sandbox project to learn the MERN stack. Following along with Udemy course.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zsidnam/learnMERN.git"
+  },
+  "author": "Zac Sidnam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zsidnam/learnMERN/issues"
+  },
+  "homepage": "https://github.com/zsidnam/learnMERN#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.4.0",
+    "mongoose": "^5.4.10",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "validator": "^10.11.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}
