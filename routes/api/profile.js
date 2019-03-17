@@ -239,7 +239,7 @@ router.delete(
             .json({ experience: 'No experience found for that id.' });
 
         profile.experience.splice(removeIndex, 1);
-        profile.save().then(profile => res.json(profile));
+        profile.save().then(profile => res.status(204).json(profile));
       })
       .catch(err => res.status(500).json(err));
   }
@@ -264,7 +264,24 @@ router.delete(
             .json({ education: 'No education found for that id.' });
 
         profile.education.splice(removeIndex, 1);
-        profile.save().then(profile => res.json(profile));
+        profile.save().then(profile => res.status(204).json(profile));
+      })
+      .catch(err => res.status(500).json(err));
+  }
+);
+
+// @route DELETE api/profile
+// @desc Delete user and profile
+// @access Private
+router.delete(
+  '/',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    Profile.findOneAndRemove({ user: req.user.id })
+      .then(() => {
+        User.findOneAndRemove({ _id: req.user.id }).then(() =>
+          res.status(204).json({ success: true })
+        );
       })
       .catch(err => res.status(500).json(err));
   }
